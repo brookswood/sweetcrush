@@ -512,6 +512,20 @@ class SweetCrushGame {
         document.getElementById('modalTitle').textContent = title;
         document.getElementById('modalMessage').textContent = message;
         document.getElementById('gameOverlay').classList.add('show');
+        
+        // Load interstitial ad when modal opens (level complete/game over)
+        this.loadInterstitialAd();
+    }
+
+    loadInterstitialAd() {
+        // Use ad manager if available, with configurable frequency
+        if (window.adManager && window.ADS_CONFIG) {
+            const frequency = window.ADS_CONFIG.settings.showInterstitialFrequency;
+            if (this.level % frequency === 0) {
+                window.adManager.loadInterstitialAd();
+                window.adManager.trackAdEvent('interstitial_shown', 'level_complete');
+            }
+        }
     }
 
     hideModal() {

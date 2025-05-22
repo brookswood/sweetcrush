@@ -6,6 +6,19 @@
     <title>Sweet Crush - Candy Match Game</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One:wght@400&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3049833326692399"
+     crossorigin="anonymous"></script>
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
 </head>
 <body>
     <div class="game-container">
@@ -27,6 +40,16 @@
             </div>
         </header>
 
+        <!-- Top Banner Ad -->
+        <div class="ad-container ad-banner-top">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-3049833326692399"
+                 data-ad-slot="1234567890"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+        </div>
+
         <main class="game-main">
             <div class="game-board-container">
                 <div class="game-board" id="gameBoard"></div>
@@ -34,6 +57,16 @@
             </div>
             
             <div class="game-sidebar">
+                <!-- Sidebar Ad -->
+                <div class="ad-container ad-sidebar">
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-3049833326692399"
+                         data-ad-slot="0987654321"
+                         data-ad-format="auto"
+                         data-full-width-responsive="true"></ins>
+                </div>
+
                 <div class="progress-section">
                     <h3>Level Progress</h3>
                     <div class="progress-bar">
@@ -59,13 +92,44 @@
                         </button>
                     </div>
                 </div>
+
+                <!-- Mobile Bottom Ad (hidden on desktop) -->
+                <div class="ad-container ad-mobile-bottom">
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-3049833326692399"
+                         data-ad-slot="1122334455"
+                         data-ad-format="auto"
+                         data-full-width-responsive="true"></ins>
+                </div>
             </div>
         </main>
+
+        <!-- Bottom Banner Ad (desktop only) -->
+        <div class="ad-container ad-banner-bottom">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-3049833326692399"
+                 data-ad-slot="5544332211"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+        </div>
 
         <div class="game-overlay" id="gameOverlay">
             <div class="modal" id="gameModal">
                 <h2 id="modalTitle">Level Complete!</h2>
                 <p id="modalMessage">Congratulations! You've completed this level.</p>
+                
+                <!-- Interstitial Ad Space (for level completion) -->
+                <div class="ad-container ad-interstitial">
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-3049833326692399"
+                         data-ad-slot="6677889900"
+                         data-ad-format="auto"
+                         data-full-width-responsive="true"></ins>
+                </div>
+                
                 <div class="modal-buttons">
                     <button class="btn btn-primary" id="nextLevelBtn">Next Level</button>
                     <button class="btn btn-secondary" id="restartBtn">Restart</button>
@@ -74,6 +138,7 @@
         </div>
     </div>
 
+    <script src="ads-config.js"></script>
     <script src="script.js"></script>
 </body>
 </html> 

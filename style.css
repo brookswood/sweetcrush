@@ -369,6 +369,64 @@ body {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
+/* Ad containers */
+.ad-container {
+    margin: 15px 0;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 10px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.ad-banner-top {
+    max-width: 728px;
+    margin: 0 auto 20px auto;
+    min-height: 90px;
+}
+
+.ad-banner-bottom {
+    max-width: 728px;
+    margin: 20px auto 0 auto;
+    min-height: 90px;
+}
+
+.ad-sidebar {
+    min-height: 250px;
+    margin-bottom: 20px;
+}
+
+.ad-mobile-bottom {
+    display: none;
+    min-height: 250px;
+}
+
+.ad-interstitial {
+    margin: 20px 0;
+    min-height: 300px;
+    max-width: 336px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* AdSense responsive adjustments */
+.adsbygoogle {
+    display: block !important;
+}
+
+/* Loading placeholder for ads */
+.ad-container:empty:before {
+    content: "Advertisement";
+    display: block;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 20px;
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
     .game-main {
@@ -396,6 +454,26 @@ body {
     
     .candy {
         font-size: 1.5rem;
+    }
+
+    /* Mobile ad adjustments */
+    .ad-banner-top,
+    .ad-banner-bottom {
+        max-width: 320px;
+        min-height: 50px;
+    }
+    
+    .ad-sidebar {
+        display: none;
+    }
+    
+    .ad-mobile-bottom {
+        display: block;
+    }
+    
+    .ad-interstitial {
+        min-height: 250px;
+        max-width: 300px;
     }
 }
 

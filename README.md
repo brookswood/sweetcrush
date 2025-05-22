@@ -175,6 +175,8 @@ The game automatically adapts to different screen sizes:
 - **CSS3**: Advanced styling, animations, and responsive design
 - **JavaScript ES6+**: Game logic, object-oriented programming
 - **Google Fonts**: Typography (Fredoka One, Poppins)
+- **Google AdSense**: Monetization through display advertising
+- **Google Analytics**: User engagement and performance tracking
 - **Docker**: Containerized deployment with nginx
 - **Nginx**: High-performance web server for static file serving
 
@@ -213,6 +215,28 @@ The game automatically adapts to different screen sizes:
 - **Power-up expert**: Complete a level using all power-ups
 - **Speed runner**: Complete levels as quickly as possible
 
+## 💰 Monetization Features
+
+### 🎯 Google Ads Integration
+- **Strategic ad placement** that doesn't interfere with gameplay
+- **Multiple ad units**: Top banner, sidebar, bottom banner, mobile ads
+- **Interstitial ads** shown every 3 levels for optimal user experience
+- **Responsive design** with mobile-optimized ad sizes
+- **Privacy-compliant** with Do Not Track support
+- **Performance tracking** with Google Analytics integration
+
+### 📊 Revenue Optimization
+- **Smart ad frequency** to balance user experience and revenue
+- **A/B testing ready** for different ad configurations
+- **Mobile-first** responsive ad layouts
+- **Loading placeholders** to prevent layout shifts
+
+### 🔧 Easy Setup
+- **Configuration file** for easy ad management
+- **Comprehensive setup guide** (see `ADS_SETUP.md`)
+- **Ad manager class** for advanced ad control
+- **Debug-friendly** with console logging
+
 ## 🔮 Future Enhancements
 
 Potential features for future versions:
@@ -222,6 +246,8 @@ Potential features for future versions:
 - **Special candy types** (striped, wrapped, etc.)
 - **Leaderboards** and achievements system
 - **Themes** and customizable candy sets
+- **Advanced monetization** (in-app purchases, premium features)
+- **Social features** (sharing scores, multiplayer)
 
 ## 🤝 Contributing
 
