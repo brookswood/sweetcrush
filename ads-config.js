@@ -90,12 +90,20 @@ class AdManager {
     // Track ad performance and user engagement
     trackAdEvent(eventName, adSlot) {
         this.debugLog(`Tracking ad event: ${eventName} for ${adSlot}`);
+        
         if (typeof gtag !== 'undefined' && ADS_CONFIG.settings.enableAnalytics) {
-            gtag('event', eventName, {
-                event_category: 'Advertisement',
-                event_label: adSlot,
-                value: 1
-            });
+            try {
+                gtag('event', eventName, {
+                    event_category: 'Advertisement',
+                    event_label: adSlot,
+                    value: 1
+                });
+                this.debugLog(`✅ Analytics event tracked: ${eventName}`);
+            } catch (error) {
+                this.debugLog(`❌ Analytics tracking error:`, error);
+            }
+        } else {
+            this.debugLog(`⚠️ Analytics tracking skipped - gtag not available or analytics disabled`);
         }
     }
 

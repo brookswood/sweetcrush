@@ -16,13 +16,32 @@
     <script async src="https://fundingchoicesmessages.google.com/i/pub-3049833326692399?ers=1" nonce="ABCDEFG"></script>
     <script nonce="ABCDEFG">(function() {function signalGooglefcPresent() {if (!window.frames['googlefcPresent']) {if (document.body) {const iframe = document.createElement('iframe'); iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;'; iframe.style.display = 'none'; iframe.name = 'googlefcPresent'; document.body.appendChild(iframe);} else {setTimeout(signalGooglefcPresent, 0);}}}signalGooglefcPresent();})();</script>
     
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <!-- Google Analytics - Only load if real tracking ID is provided -->
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'GA_MEASUREMENT_ID');
+      // Check if we have a real Google Analytics tracking ID
+      const GA_TRACKING_ID = 'GA_MEASUREMENT_ID'; // Replace with your real GA tracking ID
+      
+      if (GA_TRACKING_ID && GA_TRACKING_ID !== 'GA_MEASUREMENT_ID') {
+        // Load Google Analytics script
+        const gaScript = document.createElement('script');
+        gaScript.async = true;
+        gaScript.src = `https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`;
+        document.head.appendChild(gaScript);
+        
+        // Initialize Google Analytics
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', GA_TRACKING_ID);
+        
+        console.log('[Analytics] Google Analytics loaded with ID:', GA_TRACKING_ID);
+      } else {
+        console.log('[Analytics] Google Analytics disabled - no valid tracking ID provided');
+        // Create dummy gtag function to prevent errors
+        window.gtag = function() {
+          console.log('[Analytics] gtag called (disabled):', arguments);
+        };
+      }
     </script>
 </head>
 <body>
