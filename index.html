@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sweet Crush - Candy Match Game</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One:wght@400&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="game-container">
+        <header class="game-header">
+            <h1 class="game-title">Sweet Crush</h1>
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-label">Score</span>
+                    <span class="stat-value" id="score">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Level</span>
+                    <span class="stat-value" id="level">1</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Moves</span>
+                    <span class="stat-value" id="moves">30</span>
+                </div>
+            </div>
+        </header>
+
+        <main class="game-main">
+            <div class="game-board-container">
+                <div class="game-board" id="gameBoard"></div>
+                <div class="particle-container" id="particleContainer"></div>
+            </div>
+            
+            <div class="game-sidebar">
+                <div class="progress-section">
+                    <h3>Level Progress</h3>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <div class="target-score">Target: <span id="targetScore">1000</span></div>
+                </div>
+                
+                <div class="power-ups">
+                    <h3>Power-ups</h3>
+                    <div class="power-up-grid">
+                        <button class="power-up" data-type="bomb">
+                            <span class="power-up-icon">💣</span>
+                            <span class="power-up-count" id="bombCount">3</span>
+                        </button>
+                        <button class="power-up" data-type="rainbow">
+                            <span class="power-up-icon">🌈</span>
+                            <span class="power-up-count" id="rainbowCount">2</span>
+                        </button>
+                        <button class="power-up" data-type="shuffle">
+                            <span class="power-up-icon">🔄</span>
+                            <span class="power-up-count" id="shuffleCount">1</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <div class="game-overlay" id="gameOverlay">
+            <div class="modal" id="gameModal">
+                <h2 id="modalTitle">Level Complete!</h2>
+                <p id="modalMessage">Congratulations! You've completed this level.</p>
+                <div class="modal-buttons">
+                    <button class="btn btn-primary" id="nextLevelBtn">Next Level</button>
+                    <button class="btn btn-secondary" id="restartBtn">Restart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
