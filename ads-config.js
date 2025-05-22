@@ -22,7 +22,9 @@ const ADS_CONFIG = {
         showInterstitialFrequency: 3, // Show interstitial ad every 3 levels
         enableAutoAds: true,
         enableAnalytics: true,
-        respectPrivacy: true
+        respectPrivacy: true,
+        enableConsentManagement: true, // Enable Google CMP for GDPR compliance
+        consentRequired: true // Require consent for personalized ads
     }
 };
 
@@ -30,6 +32,8 @@ const ADS_CONFIG = {
 class AdManager {
     constructor() {
         this.adsLoaded = false;
+        this.consentStatus = 'unknown';
+        this.initializeConsentManagement();
         this.initializeAds();
     }
 
@@ -89,6 +93,65 @@ class AdManager {
             return false;
         }
         return ADS_CONFIG.settings.respectPrivacy;
+    }
+
+    // Consent Management Platform integration
+    initializeConsentManagement() {
+        if (!ADS_CONFIG.settings.enableConsentManagement) return;
+
+        // Wait for Google FC (Funding Choices) to load
+        window.addEventListener('load', () => {
+            if (typeof window.googlefc !== 'undefined') {
+                // Set up consent change callback
+                window.googlefc.callbackQueue = window.googlefc.callbackQueue || [];
+                window.googlefc.callbackQueue.push({
+                    'CONSENT_DATA_READY': () => {
+                        this.handleConsentUpdate();
+                    }
+                });
+            }
+        });
+    }
+
+    // Handle consent updates
+    handleConsentUpdate() {
+        if (typeof window.googlefc !== 'undefined' && window.googlefc.getConsentData) {
+            const consentData = window.googlefc.getConsentData();
+            
+            if (consentData && consentData.gdprApplies) {
+                // GDPR applies, check if user has given consent
+                const hasConsent = consentData.hasConsentFor && 
+                                 consentData.hasConsentFor('STORAGE') && 
+                                 consentData.hasConsentFor('PERSONALIZATION');
+                
+                if (hasConsent) {
+                    this.loadPersonalizedAds();
+                } else {
+                    this.loadNonPersonalizedAds();
+                }
+            } else {
+                // GDPR doesn't apply, load normal ads
+                this.loadAllAds();
+            }
+        }
+    }
+
+    // Load personalized ads (with user consent)
+    loadPersonalizedAds() {
+        console.log('Loading personalized ads with user consent');
+        this.loadAllAds();
+        this.trackAdEvent('consent_granted', 'personalized_ads');
+    }
+
+    // Load non-personalized ads (without consent)
+    loadNonPersonalizedAds() {
+        console.log('Loading non-personalized ads');
+        // Set request for non-personalized ads
+        if (typeof window.adsbygoogle !== 'undefined') {
+            window.adsbygoogle.requestNonPersonalizedAds = 1;
+        }
+        this.loadAllAds();
+        this.trackAdEvent('consent_denied', 'non_personalized_ads');
     }
 }
 

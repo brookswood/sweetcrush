@@ -427,6 +427,47 @@ body {
     padding: 20px;
 }
 
+/* Google Consent Management Platform styling */
+.fc-consent-root {
+    z-index: 999999 !important;
+}
+
+.fc-dialog-container {
+    backdrop-filter: blur(10px) !important;
+}
+
+.fc-dialog {
+    border-radius: 20px !important;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5) !important;
+    border: 2px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+.fc-primary-button {
+    background: linear-gradient(135deg, #43e97b, #38f9d7) !important;
+    border: none !important;
+    border-radius: 25px !important;
+    font-weight: 600 !important;
+    transition: all 0.3s ease !important;
+}
+
+.fc-primary-button:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3) !important;
+}
+
+.fc-secondary-button {
+    background: rgba(255, 255, 255, 0.2) !important;
+    border: 2px solid rgba(255, 255, 255, 0.3) !important;
+    border-radius: 25px !important;
+    font-weight: 600 !important;
+    transition: all 0.3s ease !important;
+}
+
+.fc-secondary-button:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3) !important;
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
     .game-main {
